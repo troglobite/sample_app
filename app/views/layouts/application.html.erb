@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+    <title><%= title_helper(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                          'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "sample app", "#", "logo" %>
+        <nav>
+          <ul>
+            <li><%= link_to "Home", '#', %></li>
+            <li><%= link_to "Help", '#', %></li>
+            <li><%= link_to "Log In", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container"
+      <%= yield %>
+    </div>
   </body>
 </html>
