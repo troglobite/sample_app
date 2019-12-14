@@ -1,4 +1,4 @@
 brian:
   name: Brian Parry
   email: brian@example.com
-  password_digest: <%= User.digest('password') %>
+  password_digest: <%= BCrypt::Password.new(BCrypt::Password.create("password")) %>
